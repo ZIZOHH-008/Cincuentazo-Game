@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>50azo</artifactId>
+    <artifactId>Cincuentazo</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>50azo</name>
 
@@ -60,7 +60,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>org.example._0azo/org.example._0azo.WelcomeView</mainClass>
+                            <mainClass>org.example._0azo/org.example.CincuentazoGame.WelcomeView</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>
