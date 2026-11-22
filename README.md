@@ -4,8 +4,8 @@
 3. Programar WelcomeView (HU-1)
 4. Iniciar preparación (HU-2)
 
-
-
+- En modo build, escribir init/ para que el agente entienda el proyecto
+- Usar "plan" para planear bien antes de usar simplemente build
 
 
 <br>
