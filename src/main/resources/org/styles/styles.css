@@ -1,0 +1,16 @@
+.card-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-insets: 0;
+    -fx-border-insets: 0;
+    -fx-padding: 0;
+    -fx-effect: none;
+}
+
+.card-button:hover {
+    -fx-opacity: 0.85;
+}
+
+.card-button:armed {
+    -fx-opacity: 0.60;
+}

@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Light.Distant?>
 <?import javafx.scene.effect.Lighting?>
 <?import javafx.scene.effect.Shadow?>
@@ -19,8 +20,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.CincuentazoGame.Controllers.GameController">
    <top>
       <HBox alignment="CENTER_LEFT" prefHeight="84.0" prefWidth="1000.0" style="-fx-background-color: linear-gradient(to bottom right, #D8C29A, #B79B6B);" BorderPane.alignment="CENTER">
          <children>
@@ -70,12 +70,12 @@
                </effect>
             </Label>
             <Region prefHeight="144.0" prefWidth="33.0" />
-            <Button mnemonicParsing="false" prefHeight="42.0" prefWidth="47.0" text="?">
+            <Region prefHeight="97.0" prefWidth="26.0" />
+            <Button fx:id="helpButtom" mnemonicParsing="false" prefHeight="48.0" prefWidth="47.0" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #2F4F4F; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.20), 15, 0.2, 0, 4);;" text="?" textOverrun="LEADING_WORD_ELLIPSIS">
                <font>
-                  <Font size="26.0" />
+                  <Font name="Noto Sans Bold" size="23.0" />
                </font>
             </Button>
-            <Region prefHeight="122.0" prefWidth="34.0" />
          </children>
       </HBox>
    </top>
@@ -99,34 +99,75 @@
                   <Insets right="7.0" />
                </HBox.margin>
             </Label>
-            <Label text="You">
+            <Label fx:id="labelTurn" text="You">
                <font>
                   <Font size="19.0" />
                </font>
             </Label>
             <Region prefHeight="61.0" prefWidth="21.0" />
             <Line endX="-100.0" endY="72.0" startX="-100.0" startY="100.0" stroke="WHITE" strokeWidth="3.0" />
-            <Region prefHeight="53.0" prefWidth="706.0" />
-            <Button mnemonicParsing="false" text="Exit" />
+            <Region prefHeight="53.0" prefWidth="29.0" />
+            <Label prefHeight="28.0" prefWidth="198.0" style="-fx-font-family: Trebuchet MS; -fx-text-fill: #0d0d0d;" text="Card's number Selected:">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="selectedCardField" prefHeight="29.0" prefWidth="35.0" promptText="Spade 10" text="10 ">
+               <font>
+                  <Font name="Noto Sans Adlam Regular" size="13.0" />
+               </font>
+            </TextField>
+            <Region prefHeight="53.0" prefWidth="428.0" />
+            <Button fx:id="exitButton" mnemonicParsing="false" prefHeight="31.0" prefWidth="65.0" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #2F4F4F; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.20), 15, 0.2, 0, 4);;" text="Exit" textOverrun="LEADING_WORD_ELLIPSIS">
+               <font>
+                  <Font name="Noto Sans Bold" size="13.0" />
+               </font>
+            </Button>
          </children>
       </HBox>
    </bottom>
-   <right>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-   </right>
    <center>
       <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+            <ImageView fitHeight="521.0" fitWidth="912.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/background1.jpeg" />
+               </image>
+            </ImageView>
+            <VBox alignment="TOP_CENTER" prefHeight="526.0" prefWidth="809.0">
                <children>
-                  <HBox prefHeight="100.0" prefWidth="200.0" />
-                  <ImageView fitHeight="154.0" fitWidth="176.0" pickOnBounds="true" preserveRatio="true">
+                  <HBox alignment="CENTER" prefHeight="88.0" prefWidth="839.0">
+                     <children>
+                        <Label text="Table's sum: " textFill="WHITE">
+                           <font>
+                              <Font name="Noto Sans Adlam Bold" size="19.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="20.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label text="30" textFill="WHITE">
+                           <font>
+                              <Font name="Noto Sans Adlam Bold" size="19.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="20.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children></HBox>
+                  <ImageView fx:id="imageLastCard" fitHeight="154.0" fitWidth="176.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../images/Card10Treboles.png" />
                      </image>
                   </ImageView>
-                  <Label prefHeight="18.0" prefWidth="545.0" text="Your hand:" />
-                  <GridPane prefHeight="126.0" prefWidth="600.0">
+                  <Label prefHeight="31.0" prefWidth="565.0" text="Your hand:" textFill="#fcfcfc">
+                     <font>
+                        <Font name="Noto Sans Adlam Bold" size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="20.0" />
+                     </VBox.margin></Label>
+                  <GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="126.0" prefWidth="604.0">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -137,50 +178,229 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <ImageView fitHeight="146.0" fitWidth="119.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
-                           <image>
-                              <Image url="@../../images/Card10Treboles.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="146.0" fitWidth="119.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
-                           <image>
-                              <Image url="@../../images/Card10Treboles.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="146.0" fitWidth="119.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
-                           <image>
-                              <Image url="@../../images/Card10Treboles.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="146.0" fitWidth="119.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../images/Card10Treboles.png" />
-                           </image>
-                        </ImageView>
+                        <Button fx:id="image1Card" mnemonicParsing="false" prefHeight="57.0" prefWidth="94.0" style="-fx-background-color: transparent;                         -fx-border-color: transparent;                         -fx-background-insets: 0;                         -fx-border-insets: 0;                         -fx-padding: 0;                         -fx-effect: none;                          -fx-cursor: hand;" styleClass="card-button" stylesheets="@../styles/styles.css">
+                           <graphic>
+                              <ImageView fitHeight="146.0" fitWidth="119.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/Card10Treboles.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="image2Card" mnemonicParsing="false" prefHeight="57.0" prefWidth="94.0" style="-fx-background-color: transparent;                         -fx-border-color: transparent;                         -fx-background-insets: 0;                         -fx-border-insets: 0;                         -fx-padding: 0;                         -fx-effect: none;                          -fx-cursor: hand;" styleClass="card-button" stylesheets="@../styles/styles.css" GridPane.columnIndex="3">
+                           <graphic>
+                              <ImageView fitHeight="146.0" fitWidth="119.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/Card10Treboles.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="image3Card" mnemonicParsing="false" prefHeight="57.0" prefWidth="94.0" style="-fx-background-color: transparent;                         -fx-border-color: transparent;                         -fx-background-insets: 0;                         -fx-border-insets: 0;                         -fx-padding: 0;                         -fx-effect: none;                          -fx-cursor: hand;" styleClass="card-button" stylesheets="@../styles/styles.css" GridPane.columnIndex="1">
+                           <graphic>
+                              <ImageView fitHeight="146.0" fitWidth="119.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/Card10Treboles.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button fx:id="image4Card" mnemonicParsing="false" prefHeight="57.0" prefWidth="94.0" style="-fx-background-color: transparent;                         -fx-border-color: transparent;                         -fx-background-insets: 0;                         -fx-border-insets: 0;                         -fx-padding: 0;                         -fx-effect: none;                          -fx-cursor: hand;" styleClass="card-button" stylesheets="@../styles/styles.css" GridPane.columnIndex="2">
+                           <graphic>
+                              <ImageView fitHeight="146.0" fitWidth="119.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/Card10Treboles.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
                      </children>
                   </GridPane>
-                  <Button mnemonicParsing="false" text="Play Card" />
+                  <Region prefHeight="22.0" prefWidth="802.0" />
+                  <HBox alignment="TOP_CENTER" prefHeight="54.0" prefWidth="802.0">
+                     <children>
+                        <Button fx:id="playCardButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="154.0" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #2F4F4F; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.20), 15, 0.2, 0, 4);;" text="🃏 Play Card" textOverrun="LEADING_WORD_ELLIPSIS">
+                           <font>
+                              <Font name="Noto Sans Bold" size="17.0" />
+                           </font>
+                        </Button>
+                        <Region prefHeight="54.0" prefWidth="45.0" />
+                        <Button fx:id="hitmeButton" mnemonicParsing="false" prefHeight="40.0" prefWidth="120.0" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #2F4F4F; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.20), 15, 0.2, 0, 4);;" text="Hit me" textOverrun="LEADING_WORD_ELLIPSIS">
+                           <font>
+                              <Font name="Noto Sans Bold" size="17.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
                </children>
             </VBox>
          </children>
       </StackPane>
    </center>
    <left>
-      <VBox prefHeight="520.0" prefWidth="139.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="520.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <GridPane prefHeight="346.0" prefWidth="139.0">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="91.0" minWidth="10.0" prefWidth="61.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="128.0" minWidth="10.0" prefWidth="122.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints maxHeight="58.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="99.0" minHeight="10.0" prefHeight="78.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="110.0" minHeight="10.0" prefHeight="78.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="104.0" minHeight="10.0" prefHeight="73.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="112.0" minHeight="10.0" prefHeight="76.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-            </GridPane>
+            <Region prefHeight="30.0" prefWidth="182.0" />
+            <HBox prefHeight="41.0" prefWidth="182.0">
+               <children>
+                  <ImageView fitHeight="37.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/4Players.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="14.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label prefHeight="21.0" prefWidth="82.0" text="Players">
+                     <font>
+                        <Font name="Noto Sans Adlam Bold" size="15.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="15.0" top="6.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox fx:id="boxPlayerStatus" prefHeight="46.0" prefWidth="177.0">
+               <children>
+                  <ImageView fitHeight="41.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/11player.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="10.0" top="2.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <VBox prefHeight="33.0" prefWidth="62.0">
+                     <children>
+                        <Label prefHeight="31.0" prefWidth="46.0" text="You">
+                           <font>
+                              <Font name="Noto Sans Adlam Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="labelCardsPlayer" text="4 cards">
+                           <font>
+                              <Font name="Noto Sans Adlam Regular" size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets bottom="2.0" left="15.0" top="2.0" />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox fx:id="boxBot1Status" prefHeight="46.0" prefWidth="177.0">
+               <children>
+                  <ImageView fitHeight="53.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/Bot.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="7.0" top="2.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <VBox prefHeight="33.0" prefWidth="62.0">
+                     <children>
+                        <Label prefHeight="31.0" prefWidth="46.0" text="Bot 1">
+                           <font>
+                              <Font name="Noto Sans Adlam Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="labelCardsBot1" text="4 cards">
+                           <font>
+                              <Font name="Noto Sans Adlam Regular" size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets bottom="2.0" left="10.0" top="2.0" />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox fx:id="boxBot2Status" prefHeight="46.0" prefWidth="177.0">
+               <children>
+                  <ImageView fitHeight="53.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/Bot.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="7.0" top="2.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <VBox prefHeight="33.0" prefWidth="62.0">
+                     <children>
+                        <Label prefHeight="31.0" prefWidth="46.0" text="Bot 2">
+                           <font>
+                              <Font name="Noto Sans Adlam Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="labelCardsBot2" text="4 cards">
+                           <font>
+                              <Font name="Noto Sans Adlam Regular" size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets bottom="2.0" left="10.0" top="2.0" />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox fx:id="boxBot3Status" prefHeight="46.0" prefWidth="177.0">
+               <children>
+                  <ImageView fitHeight="53.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/Bot.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="7.0" top="2.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <VBox prefHeight="33.0" prefWidth="62.0">
+                     <children>
+                        <Label prefHeight="31.0" prefWidth="46.0" text="Bot 3">
+                           <font>
+                              <Font name="Noto Sans Adlam Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="labelCardsBot3" text="4 cards">
+                           <font>
+                              <Font name="Noto Sans Adlam Regular" size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets bottom="2.0" left="10.0" top="2.0" />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+            </HBox>
          </children>
       </VBox>
    </left>
