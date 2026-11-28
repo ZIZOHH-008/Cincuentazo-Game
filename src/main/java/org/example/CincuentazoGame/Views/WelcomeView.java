@@ -14,9 +14,21 @@ public class WelcomeView extends Application {
                 WelcomeView.class.getResource("/org/example/CincuentazoGame/WelcomeView.fxml")
         );
 
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        Scene scene = new Scene(fxmlLoader.load(), 950, 650);
         stage.setTitle("50azo Game");
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }
 }
+
+
+/*
+Solo pueda iniciar si seleccionó jugadores
+como crear los jugadores
+dar alerta de cuantos jugadores seleccionó
+imprimir como log los jugadores seleccionados
+alerta al iniciar juego
+
+
+* */

@@ -29,4 +29,9 @@ public class GameController {
     @FXML private Button playCardButton;
     @FXML private TextField selectedCardField;
 
+
+    public void startNewGame(){
+
+    }
+
 }
